@@ -191,8 +191,7 @@ UIButton *settingsButton;
 ```objc
 UIButton *setBut;
 ```
-Một bộ ba tiền tố nên luôn được sử dụng cho các tên biến và hằng số, tuy nhiên có thể được bỏ qua cho các đối tên tượng Core Data. 
-A three letter prefix should always be used for class names and constants, however may be omitted for Core Data entity names. For any official raywenderlich.com books, starter kits, or tutorials, the prefix 'RWT' should be used.
+Một bộ ba tiền tố nên luôn được sử dụng cho các tên biến và hằng số, tuy nhiên có thể được bỏ qua cho tên các đối tượng Core Data. 
 
 Hằng số nên được camel-case với tất cả các từ viết hoa và bắt đầu bằng tiền tố là tên các lớp liên quan cho rõ ràng 
 
@@ -262,8 +261,7 @@ Dấu chỉ con trỏ thuộc về các biến, ví dụ: `NSString *text` khôn
 
 [Các thuộc tính private](#private-properties) nên được sử dụng ở vị trí của các thể hiện của biến bất cứ khi nào có thể. Mặc dù việc sử dụng các thể hiện biến là một cách làm hợp lệ, việc đồng ý sử dụng các thuộc tính trong code của bàn là phù hợp hơn.
 
-Truy cập trực tiếp các biến instance là điều mà các thuộc tính 'back' nên tránh ngoại trừ trong các phương thức khởi tạo (`init`, `initWithCoder:`,...). phương thức `dealloc` và bên trong các phương thức setter và getter tùy chỉnh. Để biết thêm về việc sử dụng các Phương Thức Truy Cập trong các Phương Thức Khởi Tạo và dealloc, xem [ở đây]
-(https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+Truy cập trực tiếp các biến instance là điều mà các thuộc tính 'back' nên tránh ngoại trừ trong các phương thức khởi tạo (`init`, `initWithCoder:`,...). phương thức `dealloc` và bên trong các phương thức setter và getter tùy chỉnh. Để biết thêm về việc sử dụng các Phương Thức Truy Cập trong các Phương Thức Khởi Tạo và dealloc, xem [ở đây](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **Preferred:**
 
@@ -321,7 +319,7 @@ Tại sao? Thêm chí nếu bạn khai báo một thuộc tính như `NSString` 
 
 Cú phám chấm `.` hoàn toàn là một wrapper thuận tiện xung quanh các lời gọi phương thức truy cập. Khi bạn sử dụng cú pháp chấm, thuộc tính vẫn được truy nhập hoặc thay đổi sử dụng các phương thức getter và setter/ Đọc thêm [ở đây](https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html)
 
-Ký tự chấm nên **luôn luôn** được sử dụng cho việc truy nhập và thay đổi các thuộc tính, nó làm code ngắn gọn hơn. Ký tự ngoặc vuông `[]` được ưa dùng trong tất cả các trường hợp khác.
+Ký tự chấm nên **luôn luôn** được sử dụng cho việc truy nhập và thay đổi các thuộc tính, nó làm code ngắn gọn hơn. Ký tự ngoặc vuông `[ ]` được ưa dùng trong tất cả các trường hợp khác.
 
 **Preferred:**
 ```objc
