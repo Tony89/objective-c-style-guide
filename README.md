@@ -56,7 +56,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 
 ## Language
 
-US English should be used.
+Nên sử dụng US English.
 
 **Preferred:**
 ```objc
@@ -71,7 +71,7 @@ UIColor *myColour = [UIColor whiteColor];
 
 ## Code Organization
 
-Use `#pragma mark -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
+Sử dụng `#pragma mark -` để phân nhóm phương thức theo nhóm chức năng và thực thi protocol/delegate theo phương thức chung này.
 
 ```objc
 #pragma mark - Lifecycle
@@ -115,8 +115,8 @@ Use `#pragma mark -` to categorize methods in functional groupings and protocol/
 
 ## Spacing
 
-* Indent using 2 spaces (this conserves space in print and makes line wrapping less likely). Never indent with tabs. Be sure to set this preference in Xcode.
-* Method braces and other braces (`if`/`else`/`switch`/`while` etc.) always open on the same line as the statement but close on a new line.
+* Indent (thụt lề) sử dụng 2 khoảng trắng. Không bao giờ indent với các tab. Hãy nhớ thiết lập lựa chọn này trong Xcode.
+* Phương thức braces (ngoặc nhọn) và braces khác (if/else/switch/while...): luôn luôn mở trên một dòng cùng các câu lệnh nhưng đóng trên một dòng mới.
 
 **Preferred:**
 ```objc
@@ -138,9 +138,9 @@ else {
 }
 ```
 
-* There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.
-* Prefer using auto-synthesis. But if necessary, `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
-* Colon-aligning method invocation should often be avoided.  There are cases where a method signature may have >= 3 colons and colon-aligning makes the code more readable. Please do **NOT** however colon align methods containing blocks because Xcode's indenting makes it illegible.
+* Nên có chính xác một dòng trống giữa các phương thức để tạo sự dễ nhìn và code trông sẽ có tổ chức hơn.
+* Việc sử dụng @synthesize tổng hợp sẽ giúp tiết kiệm dòng code @synthesize và @dynamic nên được khai báo trên các dòng mới trong implementation.
+* Colon-align (Căn lề dấu hai chấm) phương thức gọi nên được tránh. Có những trường hợp một phương thức có thể có từ 3 hoặc nhiều hơn colon (dấu hai chấm) và các colon-align sẽ làm cho code dễ đọc hơn. Tuy nhiên không nên căn lề colon trong các phương thức có chứa block bởi vì indent của Xcode sẽ làm nó không đọc được.
 
 **Preferred:**
 
@@ -168,14 +168,16 @@ else {
 
 ## Comments
 
-When they are needed, comments should be used to explain **why** a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
+Khi cần, các comment nên được dùng để giải thích **tại sao** một phần cụ thể trong code làm một việc gì đó. Bất kỳ comment nào được sử dụng phải giữ được sự cập nhập hoặc đã được xóa
 
-Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. *Exception: This does not apply to those comments used to generate documentation.*
+Nên tránh các comment block, code nên được tự tài liệu hóa, chỉ khi thực sự cần thiết thì sử dụng vài dòng để giải thích. *Ngoại lệ: Điều này không áp dụng cho những comment sử dụng để tạo tài liệu. 
 
 ## Naming
 
-Apple naming conventions should be adhered to wherever possible, especially those related to [memory management rules](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
+Quy tắc đặt tên của Apple nên được tuân thủ ở bất kỳ nơi nào có thể, đặc biệt là những thứ liên quan đến [các quy tắc quản lý bộ nhớ]
+(https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
 
+Dài, phương pháp mô tả và đặt tên cho các biến là rất tốt
 Long, descriptive method and variable names are good.
 
 **Preferred:**
@@ -189,10 +191,10 @@ UIButton *settingsButton;
 ```objc
 UIButton *setBut;
 ```
-
+Một bộ ba tiền tố nên luôn được sử dụng cho các tên biến và hằng số, tuy nhiên có thể được bỏ qua cho các đối tên tượng Core Data. 
 A three letter prefix should always be used for class names and constants, however may be omitted for Core Data entity names. For any official raywenderlich.com books, starter kits, or tutorials, the prefix 'RWT' should be used.
 
-Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity.
+Hằng số nên được camel-case với tất cả các từ viết hoa và bắt đầu bằng tiền tố là tên các lớp liên quan cho rõ ràng 
 
 **Preferred:**
 
@@ -206,7 +208,7 @@ static NSTimeInterval const RWTTutorialViewControllerNavigationFadeAnimationDura
 static NSTimeInterval const fadetime = 1.7;
 ```
 
-Properties should be camel-case with the leading word being lowercase. Use auto-synthesis for properties rather than manual @synthesize statements unless you have good reason.
+Các thuộc tính  nên được camel-case với các từ đi đầu là chữ cái thường. Sử dụng auto-synthesis cho các thuộc tính hơn là tự tổng hợp bằng câu lệnh @synthesize trừ khi bạn có lý do chính đáng
 
 **Preferred:**
 
@@ -222,17 +224,17 @@ id varnm;
 
 ### Underscores
 
-When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. 
+Khi sử dụng các thuộc tính, các biến nên luôn được truy cập và thay đổi sử dụng `self.`. Điều này có nghĩa là tất các thuộc tính sẽ được phân biệt trực quan, như là tất cả chúng sẽ bắt đầu với `self.`.
 
-An exception to this: inside initializers, the backing instance variable (i.e. _variableName) should be used directly to avoid any potential side effects of the getters/setters.
+Một ngoại lệ: bên trong các khởi tạo, các thể hiện biến hỗ trợ (ví dụ: _variableName) nên được sử dụng trực tiếp để tránh bất kỳ ảnh hưởng phụ của các getter/setter
 
-Local variables should not contain underscores.
+Các biến nội bộ không nên chứa gạch dưới
 
 ## Methods
 
-In method signatures, there should be a space after the method type (-/+ symbol). There should be a space between the method segments (matching Apple's style).  Always include a keyword and be descriptive with the word before the argument which describes the argument.
+Trong cấu trúc phương thức, nên có một khoảng trắng sau các phương thức kiểu (ký tự -/+). Nên có một khoảng trắng giữa các phân đoạn của phương thức. (phù hợp với phong cách của Apple). Luôn luôn thêm một từ khóa và được mô tả với các từ trước tham số.
 
-The usage of the word "and" is reserved.  It should not be used for multiple parameters as illustrated in the `initWithWidth:height:` example below.
+Việc sử dụng từ "and" được dành riêng. Nó không nên được dùng cho nhiều tham số như minh họa trong `initWithWidth:height:` ví dụ dưới đây
 
 **Preferred:**
 ```objc
@@ -254,13 +256,14 @@ The usage of the word "and" is reserved.  It should not be used for multiple par
 
 ## Variables
 
-Variables should be named as descriptively as possible. Single letter variable names should be avoided except in `for()` loops.
+Biến nên được đặt tên để mô tả về mục đích sử dụng của nó rõ nhất có thế. Các tên biến có một ký tự nên được tránh ngoại trừ trong vòng lặp `for()`
 
-Asterisks indicating pointers belong with the variable, e.g., `NSString *text` not `NSString* text` or `NSString * text`, except in the case of constants.
+Dấu chỉ con trỏ thuộc về các biến, ví dụ: `NSString *text` không nên `NSString* text` hoặc `NSString * text`, ngoại trừ trong trường hợp các hằng số.
 
-[Private properties](#private-properties) should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent. 
+[Các thuộc tính private](#private-properties) nên được sử dụng ở vị trí của các thể hiện của biến bất cứ khi nào có thể. Mặc dù việc sử dụng các thể hiện biến là một cách làm hợp lệ, việc đồng ý sử dụng các thuộc tính trong code của bàn là phù hợp hơn.
 
-Direct access to instance variables that 'back' properties should be avoided except in initializer methods (`init`, `initWithCoder:`, etc…), `dealloc` methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see [here](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+Truy cập trực tiếp các biến instance là điều mà các thuộc tính 'back' nên tránh ngoại trừ trong các phương thức khởi tạo (`init`, `initWithCoder:`,...). phương thức `dealloc` và bên trong các phương thức setter và getter tùy chỉnh. Để biết thêm về việc sử dụng các Phương Thức Truy Cập trong các Phương Thức Khởi Tạo và dealloc, xem [ở đây]
+(https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **Preferred:**
 
@@ -283,7 +286,7 @@ Direct access to instance variables that 'back' properties should be avoided exc
 
 ## Property Attributes
 
-Property attributes should be explicitly listed, and will help new programmers when reading the code.  The order of properties should be storage then atomicity, which is consistent with automatically generated code when connecting UI elements from Interface Builder.
+Các đặc tính của thuộc tính nên được liệt kê rõ ràng, và sẽ giúp các lập trình viên mới khi đọc code. Thứ tự của các thuộc tính nên được lưu trữ sau atomicity, điều này là phù hợp với việc sinh code tự động khi kết nối các thành phần giao diện từ Interface Builder.
 
 **Preferred:**
 
@@ -299,8 +302,8 @@ Property attributes should be explicitly listed, and will help new programmers w
 @property (nonatomic) NSString *tutorialName;
 ```
 
-Properties with mutable counterparts (e.g. NSString) should prefer `copy` instead of `strong`. 
-Why? Even if you declared a property as `NSString` somebody might pass in an instance of an `NSMutableString` and then change it without you noticing that.  
+Các thuộc tính với bản sao có thể thay đổi được (như NSString) nên sử dụng `copy` thay vì `strong`.
+Tại sao? Thêm chí nếu bạn khai báo một thuộc tính như `NSString` ai đó có thể truyền một instance của một `NSMutableString` và sau đó thay đổi nó mà bạn không cần phải chú ý về việc này.
 
 **Preferred:**
 
@@ -316,9 +319,9 @@ Why? Even if you declared a property as `NSString` somebody might pass in an ins
 
 ## Dot-Notation Syntax
 
-Dot syntax is purely a convenient wrapper around accessor method calls. When you use dot syntax, the property is still accessed or changed using getter and setter methods.  Read more [here](https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html)
+Cú phám chấm `.` hoàn toàn là một wrapper thuận tiện xung quanh các lời gọi phương thức truy cập. Khi bạn sử dụng cú pháp chấm, thuộc tính vẫn được truy nhập hoặc thay đổi sử dụng các phương thức getter và setter/ Đọc thêm [ở đây](https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html)
 
-Dot-notation should **always** be used for accessing and mutating properties, as it makes code more concise. Bracket notation is preferred in all other instances.
+Ký tự chấm nên **luôn luôn** được sử dụng cho việc truy nhập và thay đổi các thuộc tính, nó làm code ngắn gọn hơn. Ký tự ngoặc vuông `[]` được ưa dùng trong tất cả các trường hợp khác.
 
 **Preferred:**
 ```objc
@@ -336,7 +339,7 @@ UIApplication.sharedApplication.delegate;
 
 ## Literals
 
-`NSString`, `NSDictionary`, `NSArray`, and `NSNumber` literals should be used whenever creating immutable instances of those objects. Pay special care that `nil` values can not be passed into `NSArray` and `NSDictionary` literals, as this will cause a crash.
+`NSString`, `NSDictionary`, `NSArray`, và `NSNumber` nên được sử dụng bất cứ khi nào tạo các instance bất biến của các đối tượng. Hãy chú trong vào việc giá trị `nil` không thể được truyền vào `NSArray` và `NSDictionary`, nếu không sẽ gây ra lỗi crash.
 
 **Preferred:**
 
@@ -358,7 +361,7 @@ NSNumber *buildingStreetNumber = [NSNumber numberWithInteger:10018];
 
 ## Constants
 
-Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as `static` constants and not `#define`s unless explicitly being used as a macro.
+Các hằng số được ưa dùng hơn các chuỗi ký tự or số trên một dòng, như thế chúng cho phép dễ dàng sao chép các biến thường dùng và có thể nhanh chóng được thay đổi mà không cần phải tìm kiếm và thay thế. Các hàng số nên được khai báo kiểu hằng số `static` và không nên sử dụng các `#define` trừ khi nó được sử dụng như một macro.
 
 **Preferred:**
 
@@ -378,7 +381,7 @@ static CGFloat const RWTImageThumbnailHeight = 50.0;
 
 ## Enumerated Types
 
-When using `enum`s, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types: `NS_ENUM()`
+Khi sử dụng các `enum`, nó được khuyến khích sử dụng các kiểu kỹ thuật underlying cố định mới bởi vì nó có kiểu kiểm tra mạnh hơn và hoàn thành code. Các SDK bây giờ thêm một macro để tạo điều kiện và khuyến khích việc sử dụng các kiểu underlying cố định: `NS_ENUM()`
 
 **For Example:**
 
@@ -415,8 +418,8 @@ enum GlobalConstants {
 
 ## Case Statements
 
-Braces are not required for case statements, unless enforced by the complier.  
-When a case contains more than one line, braces should be added.
+Dấu ngoặc nhọn không được yêu cầu cho các câu lệnh state, trừ khi bắt buộc phải tuân theo bởi các trình biên dịch.
+Khi một case chưa nhiều hơn một dòng, các dấu ngoặc nhọn nên được thêm vào
 
 ```objc
 switch (condition) {
