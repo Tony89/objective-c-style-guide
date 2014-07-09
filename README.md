@@ -4,9 +4,9 @@ This style guide outlines the coding conventions for raywenderlich.com.
 
 ## Introduction
 
-The reason we made this style guide was so that we could keep the code in our books, tutorials, and starter kits nice and consistent - even though we have many different authors working on the books.
+Nguyên nhân chúng tôi tạo ra bản quy tắc code này là để giữ code trong các cuốn sách, bài hướng dẫn và các bộ starter kit được đẹp mắt và thống nhất ngay cả khi có nhiều tác giả khác nhau cùng viết một cuốn sách
 
-This style guide is different from other Objective-C style guides you may see, because the focus is centered on readability for print and the web. Many of the decisions were made with an eye toward conserving space for print, easy legibility, and tutorial writing.
+Bản hướng dẫn này khác nhiều so với các những bản hướng dẫn Objective C khác vì nó tập trung chính vào khả năng đọc trên các bản in và trên web. Nhiều lựa chọn dựa trên việc hướng không gian làm việc của mắt, rõ ràng, dễ viết.
 
 ## Credits
 
@@ -16,7 +16,7 @@ We would like to thank the creators of the [New York Times](https://github.com/N
 
 ## Background
 
-Here are some of the documents from Apple that informed the style guide. If something isn't mentioned here, it's probably covered in great detail in one of these:
+Có nhiều tài liệu từ Apple không được đề cập đến trong quy tắc code này mà có thể được đề cập bởi một trong những tài liệu dưới đây:
 
 * [The Objective-C Programming Language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
 * [Cocoa Fundamentals Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
@@ -191,7 +191,8 @@ UIButton *settingsButton;
 ```objc
 UIButton *setBut;
 ```
-Một bộ ba tiền tố nên luôn được sử dụng cho các tên biến và hằng số, tuy nhiên có thể được bỏ qua cho tên các đối tượng Core Data. 
+Một bộ ba tiền tố nên luôn được sử dụng cho các tên biến và hằng số, tuy nhiên có thể được bỏ qua cho các đối tên tượng Core Data. 
+A three letter prefix should always be used for class names and constants, however may be omitted for Core Data entity names. For any official raywenderlich.com books, starter kits, or tutorials, the prefix 'RWT' should be used.
 
 Hằng số nên được camel-case với tất cả các từ viết hoa và bắt đầu bằng tiền tố là tên các lớp liên quan cho rõ ràng 
 
@@ -261,7 +262,8 @@ Dấu chỉ con trỏ thuộc về các biến, ví dụ: `NSString *text` khôn
 
 [Các thuộc tính private](#private-properties) nên được sử dụng ở vị trí của các thể hiện của biến bất cứ khi nào có thể. Mặc dù việc sử dụng các thể hiện biến là một cách làm hợp lệ, việc đồng ý sử dụng các thuộc tính trong code của bàn là phù hợp hơn.
 
-Truy cập trực tiếp các biến instance là điều mà các thuộc tính 'back' nên tránh ngoại trừ trong các phương thức khởi tạo (`init`, `initWithCoder:`,...). phương thức `dealloc` và bên trong các phương thức setter và getter tùy chỉnh. Để biết thêm về việc sử dụng các Phương Thức Truy Cập trong các Phương Thức Khởi Tạo và dealloc, xem [ở đây](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+Truy cập trực tiếp các biến instance là điều mà các thuộc tính 'back' nên tránh ngoại trừ trong các phương thức khởi tạo (`init`, `initWithCoder:`,...). phương thức `dealloc` và bên trong các phương thức setter và getter tùy chỉnh. Để biết thêm về việc sử dụng các Phương Thức Truy Cập trong các Phương Thức Khởi Tạo và dealloc, xem [ở đây]
+(https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **Preferred:**
 
@@ -319,7 +321,7 @@ Tại sao? Thêm chí nếu bạn khai báo một thuộc tính như `NSString` 
 
 Cú phám chấm `.` hoàn toàn là một wrapper thuận tiện xung quanh các lời gọi phương thức truy cập. Khi bạn sử dụng cú pháp chấm, thuộc tính vẫn được truy nhập hoặc thay đổi sử dụng các phương thức getter và setter/ Đọc thêm [ở đây](https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html)
 
-Ký tự chấm nên **luôn luôn** được sử dụng cho việc truy nhập và thay đổi các thuộc tính, nó làm code ngắn gọn hơn. Ký tự ngoặc vuông `[ ]` được ưa dùng trong tất cả các trường hợp khác.
+Ký tự chấm nên **luôn luôn** được sử dụng cho việc truy nhập và thay đổi các thuộc tính, nó làm code ngắn gọn hơn. Ký tự ngoặc vuông `[]` được ưa dùng trong tất cả các trường hợp khác.
 
 **Preferred:**
 ```objc
@@ -476,7 +478,7 @@ switch (menuType) {
 
 ## Private Properties
 
-Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `RWTPrivate` or `private`) should never be used unless extending another class.   The Anonymous category can be shared/exposed for testing using the <headerfile>+Private.h file naming convention.
+Các thuộc tính riêng nên được khai báo trong các mở rộng lớp (anonymous categories) ở trong file .m của lớp. Không nên đặt tên categories (như là `RWPrivate` hay `private`) nếu không dùng để mở rộng lớp khác. Nếu muốn chia sẻ anonymous category khi chạy unit test thì dùng file `+Private.h`. 
 
 **For Example:**
 
@@ -492,18 +494,16 @@ Private properties should be declared in class extensions (anonymous categories)
 
 ## Booleans
 
-Objective-C uses `YES` and `NO`.  Therefore `true` and `false` should only be used for CoreFoundation, C or C++ code.  Since `nil` resolves to `NO` it is unnecessary to compare it in conditions. Never compare something directly to `YES`, because `YES` is defined to 1 and a `BOOL` can be up to 8 bits.
+Dùng `YES` và `NO` thay cho `true` và `false`. Giá trị `nil` dẫn đến `NO` vì thế không cần so sánh chúng trong các mệnh đề điều kiện. Cũng không nên so sánh biến trực tiếp với `YES` vì `YES` được định nghĩ là `1`.
 
-This allows for more consistency across files and greater visual clarity.
-
-**Preferred:**
+**Nên:**
 
 ```objc
 if (someObject) {}
 if (![anotherObject boolValue]) {}
 ```
 
-**Not Preferred:**
+**Không nên:**
 
 ```objc
 if (someObject == nil) {}
@@ -512,25 +512,25 @@ if (isAwesome == YES) {} // Never do this.
 if (isAwesome == true) {} // Never do this.
 ```
 
-If the name of a `BOOL` property is expressed as an adjective, the property can omit the “is” prefix but specifies the conventional name for the get accessor, for example:
+Không nên sử dụng tiền tố “is” trong tên của thuộc tính kiểu `BOOL` vì nó trùng với tên hàm truy cập biến.
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
 ```
-Text and example taken from the [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE).
+Tham khảo [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE).
 
 ## Conditionals
 
-Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent errors. These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
+Trong thân hàm điều kiện nên bao bởi ngoặc nhọn vì nếu không làm như thế , lỗi thường xảy ra khi ta thêm dòng lệnh thứ hai. Ngoài ra các làm trên cũng giúp đảm bảo thống nhất code và dễ nhìn.
 
-**Preferred:**
+**Nên:**
 ```objc
 if (!error) {
   return success;
 }
 ```
 
-**Not Preferred:**
+**Không nên:**
 ```objc
 if (!error)
   return success;
@@ -544,11 +544,11 @@ if (!error) return success;
 
 ### Ternary Operator
 
-The Ternary operator, `?:` , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an `if` statement, or refactored into instance variables. In general, the best use of the ternary operator is during assignment of a variable and deciding which value to use.
+Toán tam phân `?:` chỉ nên dùng khi giúp tăng độ rõ ràng và giảm code thừa. Điều kiện đơn giản thì nên dùng tam phân, phức tạp thì nên dùng if . Hay nhất là dùng khi gán giá trị cho biến với điều kiện xác định.
 
-Non-boolean variables should be compared against something, and parentheses are added for improved readability.  If the variable being compared is a boolean type, then no parentheses are needed.
+Với các biến không phải boolean khi cần so sánh thì nên bao bởi ngoặc đơn giúp dễ đọc. Nếu biến chỉ cần so sánh với giá trị `BOOL` thì không cần ngoặc đơn. 
 
-**Preferred:**
+**Nên:**
 ```objc
 NSInteger value = 5;
 result = (value != 0) ? x : y;
@@ -557,14 +557,14 @@ BOOL isHorizontal = YES;
 result = isHorizontal ? x : y;
 ```
 
-**Not Preferred:**
+**Không nên:**
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
 
 ## Init Methods
 
-Init methods should follow the convention provided by Apple's generated code template.  A return type of 'instancetype' should also be used instead of 'id'.
+Phương thức khởi tạo nên theo chuẩn của Apple. Trả về kiểu `instancetype` thay vì `id`.
 
 ```objc
 - (instancetype)init {
@@ -580,7 +580,7 @@ See [Class Constructor Methods](#class-constructor-methods) for link to article 
 
 ## Class Constructor Methods
 
-Where class constructor methods are used, these should always return type of 'instancetype' and never 'id'. This ensures the compiler correctly infers the result type. 
+Các hàm tạo lớp nên trả về kiểu `instancetype` thay vì `id` để đảm bảo trình biên dịch trả về đúng kiểu.
 
 ```objc
 @interface Airplane
@@ -592,11 +592,9 @@ More information on instancetype can be found on [NSHipster.com](http://nshipste
 
 ## CGRect Functions
 
-When accessing the `x`, `y`, `width`, or `height` of a `CGRect`, always use the [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) instead of direct struct member access. From Apple's `CGGeometry` reference:
+Khi truy cập các giá trị `x`, `y` , `width`, `height` của một `CGRect`, nên sử dụng các hàm của `CGGeometry` thay vì lấy giá trị trực tiếp. 
 
-> All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.
-
-**Preferred:**
+**Nên:**
 
 ```objc
 CGRect frame = self.view.frame;
@@ -608,7 +606,7 @@ CGFloat height = CGRectGetHeight(frame);
 CGRect frame = CGRectMake(0.0, 0.0, width, height);
 ```
 
-**Not Preferred:**
+**Không nên:**
 
 ```objc
 CGRect frame = self.view.frame;
@@ -622,9 +620,9 @@ CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 
 ## Golden Path
 
-When coding with conditionals, the left hand margin of the code should be the "golden" or "happy" path.  That is, don't nest `if` statements.  Multiple return statements are OK.
+Phần code làm việc với các điều kiện nên tuân thủ theo Golden Path 
 
-**Preferred:**
+**Nên:**
 
 ```objc
 - (void)someMethod {
@@ -636,7 +634,7 @@ When coding with conditionals, the left hand margin of the code should be the "g
 }
 ```
 
-**Not Preferred:**
+**Không nên:**
 
 ```objc
 - (void)someMethod {
@@ -648,9 +646,9 @@ When coding with conditionals, the left hand margin of the code should be the "g
 
 ## Error handling
 
-When methods return an error parameter by reference, switch on the returned value, not the error variable.
+Khi phương thức trả về một tham số error bởi tham chiếu thì nên rẽ nhánh dựa trên kết quả trả về, không dựa trên biến error.
 
-**Preferred:**
+**Nên:**
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
@@ -658,7 +656,7 @@ if (![self trySomethingWithError:&error]) {
 }
 ```
 
-**Not Preferred:**
+**Không nên:**
 ```objc
 NSError *error;
 [self trySomethingWithError:&error];
@@ -667,12 +665,10 @@ if (error) {
 }
 ```
 
-Some of Apple’s APIs write garbage values to the error parameter (if non-NULL) in successful cases, so switching on the error can cause false negatives (and subsequently crash).
-
-
 ## Singletons
 
-Singleton objects should use a thread-safe pattern for creating their shared instance.
+Đối tượng singleton nên sử dụng thread-safe khi khởi tạo 
+
 ```objc
 + (instancetype)sharedInstance {
   static id sharedInstance = nil;
@@ -690,13 +686,14 @@ This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.
 
 ## Line Breaks
 
-Line breaks are an important topic since this style guide is focused for print and online readability.
+Việc xuống dòng cần được thực hiện sao cho dễ đọc trên bản in hay xem online. 
 
 For example:
 ```objc
 self.productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:productIdentifiers];
 ```
-A long line of code like this should be carried on to the second line adhering to this style guide's Spacing section (two spaces).
+Trường hợp dòng code dài thì nên xuống dòng.
+
 ```objc
 self.productsRequest = [[SKProductsRequest alloc] 
   initWithProductIdentifiers:productIdentifiers];
@@ -707,12 +704,12 @@ self.productsRequest = [[SKProductsRequest alloc]
 
 Smiley faces are a very prominent style feature of the raywenderlich.com site!  It is very important to have the correct smile signifying the immense amount of happiness and excitement for the coding topic.  The end square bracket is used because it represents the largest smile able to be captured using ascii art.  A half-hearted smile is represented if an end parenthesis is used, and thus not preferred.
 
-**Preferred:**
+**Nên:**
 ```objc
 :]
 ```
 
-**Not Preferred:**
+**Không nên:**
 ```objc
 :)
 ```  
@@ -720,13 +717,13 @@ Smiley faces are a very prominent style feature of the raywenderlich.com site!  
 
 ## Xcode project
 
-The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.
+Các file vật lý nên được sync với các file trong Xcode project mà không cần giải thích. Mỗi Xcode groups được tạo ra nên ánh xạ bởi thư mục trong hệ thống file. Code nên được nhóm lại không chỉ theo kiểu mà còn theo theo các tính năng lớn.
 
-When possible, always turn on "Treat Warnings as Errors" in the target's Build Settings and enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
+Nếu có thể thì nên coi cảnh báo khai build như là lỗi.
 
 # Other Objective-C Style Guides
 
-If ours doesn't fit your tastes, have a look at some other style guides:
+Nếu chưa thấy hài lòng, bạn có thể tham khảo thêm các quy tắc code dưới đây:
 
 * [Robots & Pencils](https://github.com/RobotsAndPencils/objective-c-style-guide)
 * [New York Times](https://github.com/NYTimes/objective-c-style-guide)
