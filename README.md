@@ -441,7 +441,7 @@ switch (condition) {
 
 ```
 
-There are times when the same code can be used for multiple cases, and a fall-through should be used.  A fall-through is the removal of the 'break' statement for a case thus allowing the flow of execution to pass to the next case value.  A fall-through should be commented for coding clarity.
+Có nhiều lần khi cùng code có thể được sử dụng cho nhiều case, và một fall-through nên được dùng. Một fall-through là việc loại bỏ các câu lệnh 'break' cho một case từ đó cho phép các luồng thực thi để đi qua các giá trị case tiếp theo. Một fall-through nên được comment cho việc code rõ ràng
 
 ```objc
 switch (condition) {
@@ -457,7 +457,7 @@ switch (condition) {
 
 ```
 
-When using an enumerated type for a switch, 'default' is not needed.   For example:
+Khi sử ụng một kiểu enum cho một swithc, 'default' là không cần thiết. Ví dụ
 
 ```objc
 RWTLeftMenuTopItemType menuType = RWTLeftMenuTopItemMain;
