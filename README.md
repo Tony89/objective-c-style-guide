@@ -177,8 +177,7 @@ Nên tránh các comment block, code nên được tự tài liệu hóa, chỉ 
 Quy tắc đặt tên của Apple nên được tuân thủ ở bất kỳ nơi nào có thể, đặc biệt là những thứ liên quan đến [các quy tắc quản lý bộ nhớ]
 (https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
 
-Dài, phương pháp mô tả và đặt tên cho các biến là rất tốt
-Long, descriptive method and variable names are good.
+Nên đặt tên biến rõ ràng, mô tả cho mục đích sử dụng của nó
 
 **Preferred:**
 
@@ -191,10 +190,9 @@ UIButton *settingsButton;
 ```objc
 UIButton *setBut;
 ```
-Một bộ ba tiền tố nên luôn được sử dụng cho các tên biến và hằng số, tuy nhiên có thể được bỏ qua cho các đối tên tượng Core Data. 
-A three letter prefix should always be used for class names and constants, however may be omitted for Core Data entity names. For any official raywenderlich.com books, starter kits, or tutorials, the prefix 'RWT' should be used.
+Nên sử dụng bộ ba tiền tố nên được sử dụng cho các tên biến và hằng số, tuy nhiên có thể được bỏ qua cho các đối tên tượng Core Data. 
 
-Hằng số nên được camel-case với tất cả các từ viết hoa và bắt đầu bằng tiền tố là tên các lớp liên quan cho rõ ràng 
+Hằng số nên tuân theo quy tắc camel-case với tất cả các từ viết hoa và bắt đầu bằng tiền tố là tên các lớp liên quan một cách rõ ràng. 
 
 **Preferred:**
 
@@ -208,7 +206,7 @@ static NSTimeInterval const RWTTutorialViewControllerNavigationFadeAnimationDura
 static NSTimeInterval const fadetime = 1.7;
 ```
 
-Các thuộc tính  nên được camel-case với các từ đi đầu là chữ cái thường. Sử dụng auto-synthesis cho các thuộc tính hơn là tự tổng hợp bằng câu lệnh @synthesize trừ khi bạn có lý do chính đáng
+Các thuộc tính nên tuân theo quy tắc camel-case với các từ đi đầu là chữ cái thường. Sử dụng auto-synthesis cho các thuộc tính hơn là tự tổng hợp bằng câu lệnh @synthesize trừ khi bạn có lý do chính đáng
 
 **Preferred:**
 
